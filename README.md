@@ -10,6 +10,11 @@ Creative Commons Attribution 4.0 License (International): https://creativecommon
 
 VSCode のおすすめの拡張機能をまとめたプロジェクトです。
 
+## Agenda
+
+- [Python](categories/python.md)
+- [React Library](categories/react.md)
+
 ## Contributing
 
 このプロジェクトに興味がありますか？貢献を歓迎します！
