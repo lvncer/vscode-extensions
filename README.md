@@ -10,6 +10,12 @@ Creative Commons Attribution 4.0 License (International): https://creativecommon
 
 VSCode のおすすめの拡張機能をまとめたプロジェクトです。
 
+## Contributing
+
+このプロジェクトに興味がありますか？貢献を歓迎します！
+
+- [こちら](CONTRIBUTING.md)から貢献の仕方を確認してください
+
 ## License
 
 License for documentation:
