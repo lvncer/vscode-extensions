@@ -12,6 +12,7 @@ VSCode のおすすめの拡張機能をまとめたプロジェクトです。
 
 ## Agenda
 
+- [General](categories/general.md)
 - [Python](categories/python.md)
 - [React Library](categories/react.md)
 
