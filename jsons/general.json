@@ -1,8 +1,11 @@
 {
     "category": "Python",
     "extensions": [
-        "ms-python.python",
-        "ms-python.vscode-pylance",
-        "ms-python.black-formatter"
+        "usernamehw.errorlens",
+        "PKief.material-icon-theme",
+        "sdras.night-owl",
+        "Gruntfuggly.todo-tree",
+        "shardulm94.trailing-spaces",
+        "tomoki1207.pdf"
     ]
 }

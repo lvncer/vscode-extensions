@@ -1,0 +1,10 @@
+{
+    "category": "Python",
+    "extensions": [
+        "formulahendry.auto-close-tag",
+        "ritwickdey.LiveServer",
+        "techer.open-in-browser",
+        "esbenp.prettier-vscode",
+        "shardulm94.trailing-spaces"
+    ]
+}
