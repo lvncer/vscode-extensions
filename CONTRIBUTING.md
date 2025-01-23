@@ -1,69 +1,156 @@
 <!--
 
-Copyright © hellotksan
+Copyright © lvncer
 All rights reserved.
 Creative Commons Attribution 4.0 License (International): https://creativecommons.org/licenses/by/4.0/legalcode
 
 -->
 
-# Contributing to VSCode-Extensions
+# CONTRIBUTING.md
 
-Visual Studio Code の拡張機能リストへの貢献を歓迎します！
-以下のガイドラインに従って貢献していただくと、プロジェクトの一貫性を保ちながらスムーズに作業を進めることができます。
+このリポジトリへのコントリビューションに興味を持っていただきありがとうございます！以下のガイドラインを参考に、効率的で円滑なコラボレーションを行いましょう。
 
-## How to Contribute
+## 目次
 
-もしあなたが管理者であれば、ブランチを切る必要はありません。main で作業してもらって構いません。
-また、プルリクエストを作成せずに、直接 main に push してください。
+- [1. 作業環境の準備](#1-作業環境の準備)
+  - [Collaboratorとして登録されている場合](#collaboratorとして登録されている場合)
+  - [Collaboratorではない場合](#collaboratorではない場合)
+- [2. ブランチの命名規則](#2-ブランチの命名規則)
+- [3. 拡張機能の追加方法](#3-拡張機能の追加方法)
+  - [拡張機能のフォーマット](#拡張機能のフォーマット)
+  - [ファイル更新後のプルリクエスト](#ファイル更新後のプルリクエスト)
+- [4. プルリクエストPRの提出](#4-プルリクエストprの提出)
+- [5. コードレビュー](#5-コードレビュー)
+- [6. お問い合わせ](#6-お問い合わせ)
 
-1. **リポジトリをクローン**:
+---
 
-   ```bash
-   git clone https://github.com/hellotksan/vscode-extensions.git
-   cd vscode-extensions
-   ```
+## 1. 作業環境の準備
 
-2. **新しいブランチを作成**:
+### **Collaboratorとして登録されている場合**
 
-   ```bash
-   git checkout -b 新しいブランチ名
-   ```
+Collaboratorに登録されている場合は、リポジトリを`fork`する必要はありません。直接クローンして作業を始めることができます。
 
-   例: `git checkout -b add-python-extension` など
+```bash
+# リポジトリをローカルにクローン
+git clone https://github.com/lvncer/vscode-extensions.git
 
-3. **変更を加える**:
-
-   - 拡張機能の追加、修正を行います。
-
-     追加する拡張機能のフォーマットは[こちらから](#adding-a-new-extension)
-
-4. **変更をコミットする**:
-
-   ```bash
-   git add .
-   git commit -m "新しい拡張機能を追加"
-   ```
-
-5. **リモートリポジトリにプッシュ**:
-
-   ```bash
-   git push origin 新しいブランチ名
-   ```
-
-6. **プルリクエストを作成**:
-
-   - GitHub のリポジトリページにアクセスし、プルリクエストを作成します。
-
-### Adding a New Extension
-
-拡張機能を追加する際は、以下のフォーマットに従ってください。
-
-#### Example
-
-```md
-## [Prettier - Code Formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-
-- **説明**: コードフォーマットを自動で行う拡張機能。Prettier は、様々な言語に対応したコードフォーマッタです。
-- **設定(option)**: `prettier.singleQuote: true` を設定すると、シングルクォートを使用してコードをフォーマットできます。
-- **デモ動画(option)**: 使用しているデモ動画などがあればここで表示させてください。デモ動画はこのプロジェクトに保存してもいいです。
+# リポジトリディレクトリに移動
+cd vscode-extensions
 ```
+
+新しいブランチを作成して作業を進めてください。
+
+```bash
+# 新しいブランチを作成して切り替える
+git checkout -b feature/ブランチ名
+```
+
+### **Collaboratorではない場合**
+
+Collaboratorとして登録されていない場合は、このリポジトリを`fork`して、自分のアカウントで作業を進めてください。
+
+```bash
+# 自分のGitHubアカウントにリポジトリをフォーク
+
+# フォーク先のリポジトリをクローン
+git clone https://github.com/lvncer/vscode-extensions.git
+
+# リポジトリディレクトリに移動
+cd vscode-extensions
+```
+
+作業後、プルリクエスト（PR）を通じて変更を提案してください。
+
+---
+
+## 2. ブランチの命名規則
+
+以下の命名規則に従ってブランチを作成してください：
+
+- **新機能の追加:** `feature/機能名`
+- **バグ修正:** `fix/バグ内容`
+- **ドキュメント更新:** `docs/更新内容`
+
+例：
+
+```bash
+git checkout -b feature/add-python-extensions
+```
+
+---
+
+## 3. 拡張機能の追加方法
+
+### **拡張機能のフォーマット**
+
+新しい拡張機能を追加する場合は、以下のフォーマットを使用してください。
+
+#### Markdown形式の場合（例: `categories/python.md`）
+
+```markdown
+# Python関連の拡張機能
+
+1. [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+   - 拡張ID: `ms-python.python`
+   - 説明: Python言語のサポートを提供する公式拡張機能です。IntelliSense、デバッグ、コード整形、テスト実行など、Python開発に必要な基本機能を提供します。
+   - デモ: （オプション：デモ動画があれば載せてください）
+2. [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance)
+   - 拡張ID: `ms-python.vscode-pylance`
+   - 説明: PylanceはPythonの静的解析ツールで、コードのバグを検出し、コードの品質を向上させるための拡張機能です。
+```
+
+#### JSON形式の場合（例: `jsons/python.json`）
+
+```json
+{
+    "category": "Python",
+    "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance"
+    ]
+}
+```
+
+### **ファイル更新後のプルリクエスト**
+
+変更が完了したら、以下のコマンドで変更をコミットしてリモートリポジトリにプッシュしてください。
+
+```bash
+# 変更をステージング
+git add .
+
+# コミット
+git commit -m "Add Python-related extensions"
+
+# リモートにプッシュ
+git push origin ブランチ名
+```
+
+---
+
+## 4. プルリクエストPRの提出
+
+1. リポジトリの`main`ブランチには直接プッシュせず、必ずブランチを作成してください。
+2. PRのタイトルと説明には、変更内容を簡潔に記載してください。
+3. 他のCollaboratorがレビュー後、問題がなければ`main`ブランチにマージされます。
+
+---
+
+## 5. コードレビュー
+
+提出されたPRは、少なくとも1人以上のCollaboratorによってレビューされます。以下を確認します：
+
+- コーディング規約やフォーマットに準拠しているか。
+- 不要な変更が含まれていないか。
+- 既存の動作に影響を与えていないか。
+
+必要に応じてフィードバックを送りますので、対応をお願いします。
+
+---
+
+## 6. お問い合わせ
+
+不明点があれば、リポジトリのIssueタブで質問してください。迅速に対応します！
+
+---
